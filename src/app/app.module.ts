@@ -11,6 +11,9 @@ import { LoginComponent } from './components/login/login.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { WeatherService } from './services/weather/weather.service';
+import { WeatherwidgetComponent } from './components/weatherwidget/weatherwidget.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -27,14 +30,16 @@ const routes: Routes = [
     AppmenuComponent,
     AppsettingsComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    WeatherwidgetComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
